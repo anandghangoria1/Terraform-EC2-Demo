@@ -1,13 +1,18 @@
 resource "aws_instance" "demo_ec2" {
   ami           = var.ami_id
   instance_type = var.instance_type
-  key_name      = var.key_name
+  key_name      = test-key
 
   tags = {
     Name = "EC2-Demo"
   }
 
   vpc_security_group_ids = [aws_security_group.ec2_sg.id]
+}
+
+resource "aws_key_pair" "generated_key" {
+  key_name   = "test-key"
+  public_key = file("~/.ssh/test-key.pub")
 }
 
 resource "aws_security_group" "ec2_sg" {
