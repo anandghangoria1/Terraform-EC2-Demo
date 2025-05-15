@@ -12,7 +12,7 @@ An AWS account with permissions to create EC2 instances and security groups.
 STEP:2 Clone the repository:
 
 git clone <repository-url>
-cd ec2-demo
+
 
 
 
